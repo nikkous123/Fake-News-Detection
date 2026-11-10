@@ -10,12 +10,7 @@ import time
 from sentence_transformers import SentenceTransformer # For sentence embeddings   --> pip install -U sentence-transformers
 from tqdm import tqdm
 
-# function that Creates a fakenews Dataset from the 4 downlaoded files from fakenewsnet site...
-# from FakeNewsNet_dataset_creation import Create_fakenewsnet_dataset_from_files
-# call : df_fake, df_real = def create_fakenewsnet_dataset_from_files(input_dir="./fakenews_datasets/political",output_dir=None,
-#                                                                     fake_files=["politifact_fake.csv", "gossipcop_fake.csv"],
-#                                                                     real_files=["politifact_real.csv", "gossipcop_real.csv"],
-#                                                                     OutputFileName="AllNews_FakeNewsNet.csv", verbose=True)
+
 # Enable progress_apply for pandas
 tqdm.pandas()
 
