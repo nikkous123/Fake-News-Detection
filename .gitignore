@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+fakenews_datasets/
+*.pkl
+*.joblib
+*.pt
+*.safetensors
+.DS_Store
