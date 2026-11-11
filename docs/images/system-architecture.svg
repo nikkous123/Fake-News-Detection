@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="660" viewBox="0 0 1240 660" role="img" aria-labelledby="title desc">
+<title id="title">Fake News Detection system overview</title>
+<desc id="desc">Labeled CSVs are imported into local MongoDB. The Tkinter desktop app reads and writes records. Training reads labeled articles, sentiment analysis reads articles and writes scores, and pretrained inference accepts a title or reads articles for batch classification.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#2b647f"/></marker></defs>
+<rect x="5" y="5" width="1230" height="650" rx="42" fill="#fff" stroke="#245570" stroke-width="2.5"/>
+<g font-family="system-ui, 'Segoe UI', sans-serif">
+<text x="48" y="70" fill="#153347" font-size="38" font-weight="750">Fake News Detection</text>
+<text x="49" y="103" fill="#456276" font-size="22">System overview and data flow</text>
+<g fill="none" stroke="#2b647f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M313 231H430" marker-end="url(#arrow)"/>
+<path d="M810 231H925" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<path d="M486 317v70H210v64" marker-end="url(#arrow)"/>
+<path d="M620 317v134" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<path d="M754 317v70h276v64" marker-end="url(#arrow)"/>
+</g>
+<text x="370" y="216" text-anchor="middle" font-size="15" font-weight="650" fill="#245570" stroke="#fff" stroke-width="6" paint-order="stroke">Import</text><text x="868" y="216" text-anchor="middle" font-size="15" font-weight="650" fill="#245570" stroke="#fff" stroke-width="6" paint-order="stroke">Read / write</text>
+<text x="343" y="376" text-anchor="middle" font-size="15" font-weight="650" fill="#245570" stroke="#fff" stroke-width="6" paint-order="stroke">Read labeled articles</text><text x="620" y="371" text-anchor="middle" font-size="15" font-weight="650" fill="#245570" stroke="#fff" stroke-width="6" paint-order="stroke">Read articles</text><text x="620" y="394" text-anchor="middle" font-size="15" font-weight="650" fill="#245570" stroke="#fff" stroke-width="6" paint-order="stroke">Write scores</text><text x="900" y="376" text-anchor="middle" font-size="15" font-weight="650" fill="#245570" stroke="#fff" stroke-width="6" paint-order="stroke">Read batch articles</text>
+<g transform="translate(38 151)">
+<rect width="275" height="164" rx="17" fill="#edf8f2" stroke="#3b8663" stroke-width="1.6"/>
+<rect x="18" y="17" width="42" height="42" rx="11" fill="white"/>
+<g transform="translate(25 24)" fill="none" stroke="#256347" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h11l5 5v17H6zM17 3v6h5M10 14h8m-8 5h8"/></g>
+<text x="72" y="44" fill="#256347" font-size="21" font-weight="700">Dataset inputs</text>
+<text x="22" y="82" fill="#243c4c" font-size="17" font-weight="650">Labeled article CSVs</text>
+<text x="22" y="110" fill="#243c4c" font-size="17">Bundled demo or Kaggle</text>
+<text x="22" y="138" fill="#243c4c" font-size="17">Import from the Articles tab</text>
+</g>
+<g transform="translate(430 151)">
+<rect width="380" height="166" rx="17" fill="#edf6ff" stroke="#3074b3" stroke-width="1.6"/>
+<rect x="18" y="17" width="42" height="42" rx="11" fill="white"/>
+<g transform="translate(25 24)" fill="none" stroke="#1b5280" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="14" cy="6" rx="10" ry="4"/><path d="M4 6v15c0 5 20 5 20 0V6M4 13c0 5 20 5 20 0"/></g>
+<text x="72" y="44" fill="#1b5280" font-size="21" font-weight="700">Local MongoDB</text>
+<text x="22" y="82" fill="#243c4c" font-size="17" font-weight="650">Central article store</text>
+<text x="22" y="110" fill="#243c4c" font-size="17">Article text, dataset labels and scores</text>
+<text x="22" y="138" fill="#243c4c" font-size="17">User, subject and model records</text>
+</g>
+<g transform="translate(925 151)">
+<rect width="277" height="164" rx="17" fill="#fff4e9" stroke="#c56828" stroke-width="1.6"/>
+<rect x="18" y="17" width="42" height="42" rx="11" fill="white"/>
+<g transform="translate(25 24)" fill="none" stroke="#8d4215" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="22" height="16" rx="2"/><path d="M3 9h22M14 20v5m-6 0h12"/></g>
+<text x="72" y="44" fill="#8d4215" font-size="21" font-weight="700">Tkinter desktop UI</text>
+<text x="22" y="82" fill="#243c4c" font-size="17" font-weight="650">Browse and filter articles</text>
+<text x="22" y="110" fill="#243c4c" font-size="17">Manage users and subjects</text>
+<text x="22" y="138" fill="#243c4c" font-size="17">Launch analysis and training</text>
+</g>
+<g transform="translate(38 452)">
+<rect width="344" height="163" rx="17" fill="#fff4e9" stroke="#c56828" stroke-width="1.6"/>
+<rect x="18" y="17" width="42" height="42" rx="11" fill="white"/>
+<g transform="translate(25 24)" fill="none" stroke="#8d4215" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v21h21M9 20v-5m6 5V9m6 11V5"/></g>
+<text x="72" y="44" fill="#8d4215" font-size="21" font-weight="700">Classifier training</text>
+<text x="22" y="82" fill="#243c4c" font-size="17" font-weight="650">TF-IDF or Sentence-BERT</text>
+<text x="22" y="110" fill="#243c4c" font-size="17">Metrics and ROC curves</text>
+<text x="22" y="138" fill="#243c4c" font-size="17">Output: local model files</text>
+</g>
+<g transform="translate(448 452)">
+<rect width="344" height="163" rx="17" fill="#edf8f2" stroke="#3b8663" stroke-width="1.6"/>
+<rect x="18" y="17" width="42" height="42" rx="11" fill="white"/>
+<g transform="translate(25 24)" fill="none" stroke="#256347" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h5l4-8 5 16 4-8h4"/></g>
+<text x="72" y="44" fill="#256347" font-size="21" font-weight="700">Sentiment analysis</text>
+<text x="22" y="82" fill="#243c4c" font-size="17" font-weight="650">TextBlob and VADER</text>
+<text x="22" y="110" fill="#243c4c" font-size="17">Scores saved to MongoDB</text>
+<text x="22" y="138" fill="#243c4c" font-size="17">Output: plots and CSV export</text>
+</g>
+<g transform="translate(858 452)">
+<rect width="344" height="163" rx="17" fill="#f4effb" stroke="#805ab0" stroke-width="1.6"/>
+<rect x="18" y="17" width="42" height="42" rx="11" fill="white"/>
+<g transform="translate(25 24)" fill="none" stroke="#583783" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h18v14H12l-7 5zM9 12h10"/></g>
+<text x="72" y="44" fill="#583783" font-size="21" font-weight="700">Pretrained inference</text>
+<text x="22" y="82" fill="#243c4c" font-size="17" font-weight="650">BERT, BART, RoBERTa, FLAN-T5</text>
+<text x="22" y="110" fill="#243c4c" font-size="17">Single title or batch classification</text>
+<text x="22" y="138" fill="#243c4c" font-size="17">Output: predicted labels</text>
+</g>
+</g>
+</svg>
