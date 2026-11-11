@@ -41,6 +41,9 @@ On macOS or Linux with Python 3.11 and Tkinter, create the environment with `pyt
    ![Realtime News Monitor after importing the demo CSV, showing labeled articles in the Articles tab](docs/images/demo-articles.png)
 
 3. Use **Train Models from MongoDB Articles** and choose **TF-IDF**. Close the metrics and ROC plot windows to return to the app.
+
+   ![Model Training Options dialog with TF-IDF selected and SentenceTransformers embeddings available](docs/images/model-training-options.png)
+
 4. To try pretrained inference, select or enter an article title and click **LLM Classify**, choose a model, and click **Instant Classify Article**. The first use downloads the selected model. Sentence-BERT training also downloads a model on first use.
 
 The example CSV contains invented English and Greek text, with ten rows per class. Its labels are for exercising ingestion and training. Any scores from this sample are smoke-test output. The **Reset & Load Kaggle Data** button clears the demo collections after confirmation.
@@ -61,6 +64,10 @@ The example CSV contains invented English and Greek text, with ten rows per clas
 
 3. In the app, click **Reset & Load Kaggle Data** on a disposable demo database. The button clears the existing demo collections and loads up to 45,000 rows from the combined CSV. Sign in again if prompted.
 4. Set the search field to **source**, enter `Kaggle`, and click **Search**. Then choose **Train Models from MongoDB Articles → TF-IDF**. This limits the training selection to Kaggle rows. The terminal prints classification reports, holdout ROC AUC, and five-fold cross-validation F1. Close each plot to continue.
+
+![Articles tab after importing AllNews_Kaggle.csv through the generic CSV uploader](docs/images/kaggle-articles.png)
+
+*The screenshot shows `AllNews_Kaggle.csv` loaded through **Upload Synthetic/other dataset**. That uploader displays `Synthetic` in the Source column. The dedicated Kaggle loader in step 3 uses `Kaggle`.*
 
 The training code uses a stratified 80/20 split and stratified five-fold cross-validation, both with seed `42`. In the printed binary F1 scores, class `1` is the positive class. Record the commit, dataset files, selected model option, and installed package versions alongside any numbers you report. The dependency file is unpinned, and exact agreement with the original e-class metrics has not been verified. The original FakeNewsNet evaluation and sentiment figures are coursework artifacts and are outside this run procedure.
 
