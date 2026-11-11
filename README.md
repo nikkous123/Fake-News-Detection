@@ -106,6 +106,18 @@ The ROC legend displays AUC values of **0.999** for Logistic Regression and **1.
 
 Training saves `log_model.pkl`, `rf_model.pkl`, and `xgb_model.pkl` in `fakenews_datasets/models/` on your machine.
 
+### Sentiment analysis on Kaggle
+
+After loading `AllNews_Kaggle.csv`, select **Articles → Run Sentiment Analysis**. TextBlob and VADER score the loaded articles independently of the TF-IDF classifiers. The plots use the dataset labels (`0` = fake, `1` = real).
+
+TextBlob scores cluster around neutral to slightly positive for both classes. VADER scores cluster near both extremes, with a more pronounced negative peak for the fake class. The two classes still overlap substantially across both scores.
+
+![Kaggle VADER compound score densities for fake and real articles](docs/images/kaggle-sentiment-vader-density.png)
+
+![Kaggle scatter plot of TextBlob polarity versus VADER compound score by article label](docs/images/kaggle-sentiment-textblob-vs-vader.png)
+
+[TextBlob histogram](docs/images/kaggle-sentiment-textblob-histogram.png) · [VADER histogram](docs/images/kaggle-sentiment-vader-histogram.png) · [TextBlob density plot](docs/images/kaggle-sentiment-textblob-density.png)
+
 ## Sentiment analysis on FakeNewsNet
 
 In the original coursework run, we compared TextBlob polarity and VADER compound scores across 21,847 FakeNewsNet records. The labels in the plots are `0 = fake` and `1 = real`.
