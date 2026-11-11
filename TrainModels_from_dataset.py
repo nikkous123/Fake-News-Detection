@@ -58,7 +58,6 @@ def Train_Models_from_dataframe(df, filtered_option=True, models_dir=models_dir,
     # df = pd.read_csv(dataset_path)
     import pandas as pd
     from pymongo import MongoClient
-    import swifter  # improves the speed of clean_text
 
     def Save_model_metadata(model_name, use_embeddings=False):
         # from pymongo import MongoClient
@@ -108,7 +107,7 @@ def Train_Models_from_dataframe(df, filtered_option=True, models_dir=models_dir,
     if set(y.dropna().unique()) != {0, 1} or y.isna().any() or y.value_counts().min() < 5:
         raise ValueError("Training requires at least five usable articles for each label (0 and 1).")
     y = y.astype(int)
-    X = df["text"].swifter.apply(clean_text)
+    X = df["text"].map(clean_text)
 
     models = [
         ("log_model", "Logistic Regression", LogisticRegression(max_iter=1000)),
