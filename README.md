@@ -17,20 +17,20 @@ I worked on this project for the Advanced Data Management course at the Universi
 
 Use Python 3.11, Tkinter, and a local MongoDB server listening on `127.0.0.1:27017`. Use a disposable local MongoDB instance for the demo. The application uses the `realtime_news_db` database and seeds a local demo login.
 
-Run these commands from the folder containing `requirements.txt`. If you downloaded the ZIP from GitHub, extract it first. Only `setupDB.py` and `setup_realtime_news_db_1.py` are launched directly for the desktop demo.
+Download and extract the repository or clone it. Open a terminal in the folder containing `requirements.txt`. On Windows, run the following commands one at a time in Command Prompt. The virtual environment lives inside the project folder.
 
-```sh
-python -m venv .venv
+```cmd
+dir requirements.txt
+py -3.11 -m venv .venv
+.venv\Scripts\python.exe -m pip install -r requirements.txt
+.venv\Scripts\python.exe -m nltk.downloader stopwords vader_lexicon
+.venv\Scripts\python.exe setupDB.py
+.venv\Scripts\python.exe setup_realtime_news_db_1.py
 ```
 
-Activate it with `.venv\Scripts\Activate.ps1` in Windows PowerShell or `source .venv/bin/activate` in Bash. Then run:
+Run `setupDB.py` once on a fresh demo database. If it reports that collections already exist and you previously initialized this demo, launch the app directly. Use a separate local MongoDB instance if the existing database contains data you want to keep.
 
-```sh
-python -m pip install -r requirements.txt
-python -m nltk.downloader stopwords vader_lexicon
-python setupDB.py
-python setup_realtime_news_db_1.py
-```
+On macOS or Linux with Python 3.11 and Tkinter, create the environment with `python3.11 -m venv .venv` and use `.venv/bin/python` in place of the Windows interpreter path above.
 
 1. Sign in as `admin@example.test` with password `local-demo`.
 2. Use **Upload Synthetic/other dataset** and select [examples/demo_articles.csv](examples/demo_articles.csv).
@@ -42,8 +42,21 @@ The example CSV contains invented English and Greek text, with ten rows per clas
 ## Use your own data
 
 - **CSV import.** Supply UTF-8 `title`, `text`, and `label` columns. Use `0` for fake and `1` for real. You can also provide `subject` and `date`. The GUI applies minimum text lengths and expects at least five usable rows per class to train.
-- **Kaggle.** The original coursework used the [Fake and Real News Dataset](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset). Combine the source CSVs with a binary `label` column and use the CSV import, or put the combined file at `fakenews_datasets/Kaggle/AllNews_Kaggle.csv` for the app's reset-and-load action.
 - **Optional generation.** Set `NEWSAPI_KEY` before launching the desktop app for English generation. This requires network access. The original datasets and model artifacts are kept outside Git.
+
+## Repeat the Kaggle experiment
+
+1. Download `Fake.csv` and `True.csv` from the [Fake and Real News Dataset](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset) and put them in `fakenews_datasets/Kaggle/` inside the repository. Create those folders if needed.
+2. From the repository root, combine and shuffle the source CSVs with a fixed seed. This writes `AllNews_Kaggle.csv` with labels `0 = fake` and `1 = real`.
+
+   ```cmd
+   .venv\Scripts\python.exe -c "import pandas as pd; from pathlib import Path; p = Path('fakenews_datasets/Kaggle'); fake = pd.read_csv(p / 'Fake.csv').assign(label=0); real = pd.read_csv(p / 'True.csv').assign(label=1); pd.concat([fake, real], ignore_index=True).sample(frac=1, random_state=42).to_csv(p / 'AllNews_Kaggle.csv', index=False)"
+   ```
+
+3. In the app, click **Reset & Load Kaggle Data** on a disposable demo database. The button clears the existing demo collections and loads up to 45,000 rows from the combined CSV. Sign in again if prompted.
+4. Set the search field to **source**, enter `Kaggle`, and click **Search**. Then choose **Train Models from MongoDB Articles → TF-IDF**. This limits the training selection to Kaggle rows. The terminal prints classification reports, holdout ROC AUC, and five-fold cross-validation F1. Close each plot to continue.
+
+The training code uses a stratified 80/20 split and stratified five-fold cross-validation, both with seed `42`. In the printed binary F1 scores, class `1` is the positive class. Record the commit, dataset files, selected model option, and installed package versions alongside any numbers you report. The dependency file is unpinned, and exact agreement with the original e-class metrics has not been verified. The original FakeNewsNet evaluation and sentiment figures are coursework artifacts and are outside this run procedure.
 
 ## Interpreting the output
 
