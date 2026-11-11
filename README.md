@@ -71,6 +71,18 @@ The example CSV contains invented English and Greek text, with ten rows per clas
 
 The training code uses a stratified 80/20 split and stratified five-fold cross-validation, both with seed `42`. In the printed binary F1 scores, class `1` is the positive class. Record the commit, dataset files, selected model option, and installed package versions alongside any numbers you report. The dependency file is unpinned, and exact agreement with the original e-class metrics has not been verified. The [FakeNewsNet sentiment results](#sentiment-analysis-on-fakenewsnet) below come from a separate coursework run.
 
+### Example TF-IDF training results
+
+In one Windows run after importing `AllNews_Kaggle.csv`, the app trained **Logistic Regression**, **Random Forest**, and **XGBoost** in a few minutes. Allow more time for larger datasets or slower hardware. Close each plot window to let the desktop workflow finish.
+
+![Holdout precision, recall, and F1 for the three TF-IDF classifiers](docs/images/kaggle-tfidf-metrics.png)
+
+![Holdout ROC curves for the three TF-IDF classifiers](docs/images/kaggle-tfidf-roc.png)
+
+The ROC legend displays AUC values of **0.999** for Logistic Regression and **1.000** for both Random Forest and XGBoost, rounded to three decimals. These scores come from a random holdout in this run. The evaluation did not measure performance on new publishers or articles collected later.
+
+Training saves `log_model.pkl`, `rf_model.pkl`, and `xgb_model.pkl` in `fakenews_datasets/models/` on your machine.
+
 ## Sentiment analysis on FakeNewsNet
 
 In the original coursework run, we compared TextBlob polarity and VADER compound scores across 21,847 FakeNewsNet records. The labels in the plots are `0 = fake` and `1 = real`.
