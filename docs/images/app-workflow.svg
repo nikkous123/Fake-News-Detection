@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="410" viewBox="0 0 960 410" role="img" aria-labelledby="title desc">
+<title id="title">Fake News Detection desktop workflow</title>
+<desc id="desc">Set up the app and local MongoDB, import a labeled CSV, then use the articles for classifier training, sentiment analysis, or optional pretrained inference.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="m0 0 10 5-10 5z" fill="#92a9c2"/></marker></defs>
+<rect x="1" y="1" width="958" height="408" rx="22" fill="#0f1c2e" stroke="#334863"/>
+<g font-family="system-ui, sans-serif">
+<text x="480" y="45" text-anchor="middle" fill="#f1f5f9" font-size="27" font-weight="700">Desktop app workflow</text>
+<g fill="#172b43" stroke="#46617f"><rect x="270" y="66" width="420" height="58" rx="11"/><rect x="270" y="149" width="420" height="65" rx="11"/></g>
+<g text-anchor="middle"><text x="480" y="90" fill="#f1f5f9" font-size="19" font-weight="700">Set up and launch the app</text><text x="480" y="111" fill="#c4d3e4" font-size="15">Python, Tkinter and local MongoDB</text>
+<text x="480" y="175" fill="#f1f5f9" font-size="19" font-weight="700">Import labeled articles</text><text x="480" y="198" fill="#c4d3e4" font-size="15">Bundled demo CSV or Kaggle dataset</text></g>
+<g fill="none" stroke="#92a9c2" stroke-width="2.2"><path d="M480 124v22" marker-end="url(#arrow)"/><path d="M480 214v64" marker-end="url(#arrow)"/><path d="M480 244H170v34m310-34h310v34" marker-end="url(#arrow)"/><path d="M170 244v34" marker-end="url(#arrow)"/></g>
+<g transform="translate(26 284)"><rect width="290" height="100" rx="12" fill="#172b43" stroke="#46617f"/><rect x="16" y="17" width="4" height="64" rx="2" fill="#5eead4"/><text x="31" y="33" fill="#5eead4" font-size="19" font-weight="700">Train classifiers</text><text x="31" y="58" fill="#e2e8f0" font-size="15">TF-IDF or Sentence-BERT</text><text x="31" y="79" fill="#c4d3e4" font-size="14">Metrics, ROC curves, saved models</text></g>
+<g transform="translate(335 284)"><rect width="290" height="100" rx="12" fill="#172b43" stroke="#46617f"/><rect x="16" y="17" width="4" height="64" rx="2" fill="#93c5fd"/><text x="31" y="33" fill="#93c5fd" font-size="19" font-weight="700">Analyze sentiment</text><text x="31" y="58" fill="#e2e8f0" font-size="15">TextBlob and VADER</text><text x="31" y="79" fill="#c4d3e4" font-size="14">Plots, MongoDB scores, CSV export</text></g>
+<g transform="translate(644 284)"><rect width="290" height="100" rx="12" fill="#172b43" stroke="#46617f"/><rect x="16" y="17" width="4" height="64" rx="2" fill="#c4b5fd"/><text x="31" y="33" fill="#c4b5fd" font-size="19" font-weight="700">Try pretrained inference</text><text x="31" y="58" fill="#e2e8f0" font-size="15">Select an article title</text><text x="31" y="79" fill="#c4d3e4" font-size="14">Predicted label · optional</text></g>
+</g>
+</svg>
