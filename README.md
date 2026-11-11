@@ -8,7 +8,7 @@ The Tkinter app brings the workflow into one place. Import a labeled CSV into Mo
 
 ![Six-step desktop walkthrough from launch and CSV import to training results, sentiment analysis, and optional title prediction](docs/images/app-workflow.svg)
 
-[Run the desktop demo](#run-the-desktop-demo) · [Run the full Kaggle workflow](#repeat-the-kaggle-experiment) · [Explore the app tabs](#app-tabs-and-controls)
+[Run the desktop demo](#run-the-desktop-demo) · [Run the full Kaggle workflow](#repeat-the-kaggle-experiment) · [Explore the app tabs](#app-tabs-and-controls) · [System architecture](#system-architecture)
 
 ## What the project covers
 
@@ -75,6 +75,10 @@ The example CSV contains invented English and Greek text, with ten rows per clas
 | Users | **Add User**, **Delete Selected User**, **Refresh** | Lists user records. Add a name, email, and role (user, moderator, or admin), delete the selected record, or reload the list. Adding a record through this form does not set a login password. |
 | Subjects | **Add Subject**, **Delete Selected**, **Refresh Subjects** | Manages the stored subject list used for synthetic generation. |
 | Models | **Delete Selected Model** | Lists saved model records with their timestamps and feature types. Delete targets the MongoDB record. It does not remove the local model file, and records saved with full paths may fail to match the filename shown in the table. |
+
+## System architecture
+
+![System architecture and data flow between CSV inputs, MongoDB, the Tkinter app, classifier training, sentiment analysis, and pretrained inference](docs/images/system-architecture.svg)
 
 ## Use your own data
 
