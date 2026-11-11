@@ -48,6 +48,23 @@ On macOS or Linux with Python 3.11 and Tkinter, create the environment with `pyt
 
 The example CSV contains invented English and Greek text, with ten rows per class. Its labels are for exercising ingestion and training. Any scores from this sample are smoke-test output. The **Reset & Load Kaggle Data** button clears the demo collections after confirmation.
 
+## App tabs and controls
+
+| Tab | Control | What it does |
+| --- | --- | --- |
+| Articles | **Search**, **Refresh Articles** | Search by title, subject, sentiment, or source. Refresh restores the full list. Click a column header to sort or double-click a row to copy its title into the search box. The search menu also lists label and confidence, but the current text search does not reliably filter those numeric fields. |
+| Articles | **Upload Synthetic/other dataset** | Imports a labeled CSV into MongoDB. The generic importer displays `Synthetic` as the source. |
+| Articles | **Select Subject for Generation**, **Generate Synthetic Dataset** | Chooses a topic and writes a semi-synthetic CSV using NewsAPI and GPT-2. Set `NEWSAPI_KEY` before launching, then import the generated CSV using the upload button. |
+| Articles | **Reset & Load Kaggle Data** | Asks for confirmation, clears the demo collections, and loads the local combined Kaggle CSV. Use this on a disposable demo database. |
+| Articles | **Train Models from MongoDB Articles** | Trains on articles matched to the titles currently shown in the table. **TF-IDF** trains Logistic Regression, Random Forest, and XGBoost. **Embeddings (SentenceTransformers)** trains Logistic Regression and Random Forest. |
+| Articles | **Run Sentiment Analysis** | Runs TextBlob and VADER on the MongoDB article collection, writes the scores back to MongoDB, and exports `fakenews_datasets/sentiment/articles_sentiments.csv`. |
+| Articles | **LLM Classify** | Classifies the title in the search box and displays the prediction. The dialog offers BERT, FLAN-T5, BART, and RoBERTa. The full-text checkbox is present, but this single-article action currently uses only the title. |
+| Articles | **LLM Classify all articles** | Offers the same four models and runs over eligible labeled articles in MongoDB. **Use full text** adds the body to the title. The app saves predictions separately from dataset labels and prints an evaluation summary. |
+| Articles | **Delete Selected Articles** | Deletes selected records from MongoDB by matching their titles. Titles can be ambiguous when duplicates exist. |
+| Users | **Add User**, **Delete Selected User**, **Refresh** | Lists user records. Add a name, email, and role (user, moderator, or admin), delete the selected record, or reload the list. Adding a record through this form does not set a login password. |
+| Subjects | **Add Subject**, **Delete Selected**, **Refresh Subjects** | Manages the stored subject list used for synthetic generation. |
+| Models | **Delete Selected Model** | Lists saved model records with their timestamps and feature types. Delete targets the MongoDB record. It does not remove the local model file, and records saved with full paths may fail to match the filename shown in the table. |
+
 ## Use your own data
 
 - **CSV import.** Supply UTF-8 `title`, `text`, and `label` columns. Use `0` for fake and `1` for real. You can also provide `subject` and `date`. The GUI applies minimum text lengths and expects at least five usable rows per class to train.
