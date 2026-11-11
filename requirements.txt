@@ -13,7 +13,6 @@ scipy
 seaborn
 sentence-transformers
 sentencepiece
-swifter
 textblob
 tiktoken
 torch
