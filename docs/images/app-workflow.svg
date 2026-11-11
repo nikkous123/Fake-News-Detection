@@ -37,7 +37,7 @@
 <rect width="277" height="164" rx="17" fill="#fff4e9" stroke="#c56828" stroke-width="1.6"/>
 <rect x="18" y="17" width="42" height="42" rx="11" fill="white"/>
 <g transform="translate(25 24)" fill="none" stroke="#8d4215" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="22" height="16" rx="2"/><path d="M3 9h22M14 20v5m-6 0h12"/></g>
-<text x="72" y="44" fill="#8d4215" font-size="21" font-weight="700">Tkinter desktop app</text>
+<text x="72" y="44" fill="#8d4215" font-size="21" font-weight="700">Tkinter desktop UI</text>
 <text x="22" y="82" fill="#243c4c" font-size="17" font-weight="650">Browse and filter articles</text>
 <text x="22" y="110" fill="#243c4c" font-size="17">Manage users and subjects</text>
 <text x="22" y="138" fill="#243c4c" font-size="17">Launch analysis and training</text>
