@@ -1,6 +1,6 @@
 # Fake News Detection
 
-A University project of mine about exploring how classical machine learning and pretrained transformers classify labeled news articles. A Tkinter desktop app uses MongoDB to browse and filter articles, train classifiers on the current selection, and run transformer inference. The main workflow focuses on English-language news.
+A University of Thessaly coursework project exploring how classical machine learning models and pretrained transformers classify news articles. I built a Tkinter desktop app that uses MongoDB to store, browse, and filter labeled articles. The app lets users train classifiers on the articles they select and run pretrained transformer models to classify English-language articles as **real** or **fake**.
 
 ## What the project covers
 
