@@ -69,7 +69,22 @@ The example CSV contains invented English and Greek text, with ten rows per clas
 
 *The screenshot shows `AllNews_Kaggle.csv` loaded through **Upload Synthetic/other dataset**. That uploader displays `Synthetic` in the Source column. The dedicated Kaggle loader in step 3 uses `Kaggle`.*
 
-The training code uses a stratified 80/20 split and stratified five-fold cross-validation, both with seed `42`. In the printed binary F1 scores, class `1` is the positive class. Record the commit, dataset files, selected model option, and installed package versions alongside any numbers you report. The dependency file is unpinned, and exact agreement with the original e-class metrics has not been verified. The original FakeNewsNet evaluation and sentiment figures are coursework artifacts and are outside this run procedure.
+The training code uses a stratified 80/20 split and stratified five-fold cross-validation, both with seed `42`. In the printed binary F1 scores, class `1` is the positive class. Record the commit, dataset files, selected model option, and installed package versions alongside any numbers you report. The dependency file is unpinned, and exact agreement with the original e-class metrics has not been verified. The [FakeNewsNet sentiment results](#sentiment-analysis-on-fakenewsnet) below come from a separate coursework run.
+
+## Sentiment analysis on FakeNewsNet
+
+In the original coursework run, we compared TextBlob polarity and VADER compound scores across 21,847 FakeNewsNet records. The labels in the plots are `0 = fake` and `1 = real`.
+
+| Sentiment score | KS statistic | ROC AUC using the score alone |
+| --- | ---: | ---: |
+| TextBlob polarity | 0.0808 | 0.5514 |
+| VADER compound | 0.1077 | 0.5718 |
+
+Both methods show substantial overlap between the two classes, especially around neutral sentiment. VADER separated the classes slightly better on this dataset, but both AUC values were close to 0.50, the chance baseline for ranking. These results describe the sentiment scores alone.
+
+![TextBlob polarity density for fake and real FakeNewsNet records](docs/images/fakenewsnet-textblob-density.png)
+
+![VADER compound score density for fake and real FakeNewsNet records](docs/images/fakenewsnet-vader-density.png)
 
 ## Interpreting the output
 
