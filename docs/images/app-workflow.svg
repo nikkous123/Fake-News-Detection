@@ -1,73 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="660" viewBox="0 0 1240 660" role="img" aria-labelledby="title desc">
-<title id="title">Fake News Detection system overview</title>
-<desc id="desc">Labeled CSVs are imported into local MongoDB. The Tkinter desktop app reads and writes records. Training reads labeled articles, sentiment analysis reads articles and writes scores, and pretrained inference accepts a title or reads articles for batch classification.</desc>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#2b647f"/></marker></defs>
-<rect x="5" y="5" width="1230" height="650" rx="42" fill="#fff" stroke="#245570" stroke-width="2.5"/>
-<g font-family="system-ui, 'Segoe UI', sans-serif">
-<text x="48" y="70" fill="#153347" font-size="38" font-weight="750">Fake News Detection</text>
-<text x="49" y="103" fill="#456276" font-size="22">System overview and data flow</text>
-<g fill="none" stroke="#2b647f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-<path d="M313 231H430" marker-end="url(#arrow)"/>
-<path d="M810 231H925" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
-<path d="M486 317v70H210v64" marker-end="url(#arrow)"/>
-<path d="M620 317v134" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
-<path d="M754 317v70h276v64" marker-end="url(#arrow)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+<title id="title">Fake News Detection desktop walkthrough</title>
+<desc id="desc">Launch the app, load labeled articles, train classifiers, review results, run sentiment analysis, and optionally classify a title.</desc>
+<defs><linearGradient id="flow"><stop stop-color="#dceaf9"/><stop offset="1" stop-color="#377bbd"/></linearGradient></defs>
+<rect x="2" y="2" width="1196" height="646" rx="24" fill="#fff" stroke="#c3d4e4" stroke-width="2"/>
+<g font-family="system-ui, 'Segoe UI', sans-serif" text-anchor="middle">
+<text x="600" y="63" font-size="38" font-weight="750" fill="#17344d">Fake News Detection walkthrough</text>
+<path d="M45 91H1155M45 352H1155" stroke="#cfdeea" stroke-width="2"/>
+<text x="48" y="128" text-anchor="start" font-size="18" font-weight="700" fill="#3d5b74">Set up and train</text><path transform="translate(305 191)" d="M0 0h165v-9l22 15-22 15v-9H0z" fill="url(#flow)"/><path transform="translate(697 191)" d="M0 0h165v-9l22 15-22 15v-9H0z" fill="url(#flow)"/><text x="48" y="389" text-anchor="start" font-size="18" font-weight="700" fill="#3d5b74">Review and explore</text><path transform="translate(305 452)" d="M0 0h165v-9l22 15-22 15v-9H0z" fill="url(#flow)"/><path transform="translate(697 452)" d="M0 0h165v-9l22 15-22 15v-9H0z" fill="url(#flow)"/>
+<g transform="translate(208 198)">
+<circle r="47" fill="#eaf3fc"/>
+<g transform="translate(-28 -28) scale(.875)" fill="none" stroke="#2a6bac" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="9" y="9" width="46" height="34" rx="4"/><path d="m6 48-3 7h58l-3-7M22 20l-6 6 6 6m6 0h10"/></g>
+<circle cx="-44" cy="-35" r="17" fill="#2a6bac" stroke="white" stroke-width="2"/>
+<text x="-44" y="-29" font-weight="700" font-size="17" fill="white">1</text>
+<text y="83" fill="#17344d" font-size="24" font-weight="700">Launch the app</text>
+<text y="112" fill="#405b70" font-size="17">Start local MongoDB</text>
+<text y="136" fill="#405b70" font-size="17">Open the Tkinter app and sign in</text>
 </g>
-<text x="370" y="216" text-anchor="middle" font-size="15" font-weight="650" fill="#245570" stroke="#fff" stroke-width="6" paint-order="stroke">Import</text><text x="868" y="216" text-anchor="middle" font-size="15" font-weight="650" fill="#245570" stroke="#fff" stroke-width="6" paint-order="stroke">Read / write</text>
-<text x="343" y="376" text-anchor="middle" font-size="15" font-weight="650" fill="#245570" stroke="#fff" stroke-width="6" paint-order="stroke">Read labeled articles</text><text x="620" y="371" text-anchor="middle" font-size="15" font-weight="650" fill="#245570" stroke="#fff" stroke-width="6" paint-order="stroke">Read articles</text><text x="620" y="394" text-anchor="middle" font-size="15" font-weight="650" fill="#245570" stroke="#fff" stroke-width="6" paint-order="stroke">Write scores</text><text x="900" y="376" text-anchor="middle" font-size="15" font-weight="650" fill="#245570" stroke="#fff" stroke-width="6" paint-order="stroke">Read batch articles</text>
-<g transform="translate(38 151)">
-<rect width="275" height="164" rx="17" fill="#edf8f2" stroke="#3b8663" stroke-width="1.6"/>
-<rect x="18" y="17" width="42" height="42" rx="11" fill="white"/>
-<g transform="translate(25 24)" fill="none" stroke="#256347" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h11l5 5v17H6zM17 3v6h5M10 14h8m-8 5h8"/></g>
-<text x="72" y="44" fill="#256347" font-size="21" font-weight="700">Dataset inputs</text>
-<text x="22" y="82" fill="#243c4c" font-size="17" font-weight="650">Labeled article CSVs</text>
-<text x="22" y="110" fill="#243c4c" font-size="17">Bundled demo or Kaggle</text>
-<text x="22" y="138" fill="#243c4c" font-size="17">Import from the Articles tab</text>
+<g transform="translate(600 198)">
+<circle r="47" fill="#eaf6f1"/>
+<g transform="translate(-28 -28) scale(.875)" fill="none" stroke="#20806d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M11 7h27l11 11v33H11zM38 7v12h11M18 25h14m-14 8h10"/><path d="M47 35v23m-8-8 8 8 8-8"/></g>
+<circle cx="-44" cy="-35" r="17" fill="#20806d" stroke="white" stroke-width="2"/>
+<text x="-44" y="-29" font-weight="700" font-size="17" fill="white">2</text>
+<text y="83" fill="#17344d" font-size="24" font-weight="700">Load labeled articles</text>
+<text y="112" fill="#405b70" font-size="17">Import the bundled demo CSV</text>
+<text y="136" fill="#405b70" font-size="17">or load the Kaggle dataset</text>
 </g>
-<g transform="translate(430 151)">
-<rect width="380" height="166" rx="17" fill="#edf6ff" stroke="#3074b3" stroke-width="1.6"/>
-<rect x="18" y="17" width="42" height="42" rx="11" fill="white"/>
-<g transform="translate(25 24)" fill="none" stroke="#1b5280" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="14" cy="6" rx="10" ry="4"/><path d="M4 6v15c0 5 20 5 20 0V6M4 13c0 5 20 5 20 0"/></g>
-<text x="72" y="44" fill="#1b5280" font-size="21" font-weight="700">Local MongoDB</text>
-<text x="22" y="82" fill="#243c4c" font-size="17" font-weight="650">Central article store</text>
-<text x="22" y="110" fill="#243c4c" font-size="17">Article text, dataset labels and scores</text>
-<text x="22" y="138" fill="#243c4c" font-size="17">User, subject and model records</text>
+<g transform="translate(992 198)">
+<circle r="47" fill="#eaf3fc"/>
+<g transform="translate(-28 -28) scale(.875)" fill="none" stroke="#2a6bac" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="8" y="8" width="48" height="48" rx="8"/><path d="M19 44V32m13 12V20m13 24V27"/></g>
+<circle cx="-44" cy="-35" r="17" fill="#2a6bac" stroke="white" stroke-width="2"/>
+<text x="-44" y="-29" font-weight="700" font-size="17" fill="white">3</text>
+<text y="83" fill="#17344d" font-size="24" font-weight="700">Train classifiers</text>
+<text y="112" fill="#405b70" font-size="17">Train Models from MongoDB Articles</text>
+<text y="136" fill="#405b70" font-size="17">Choose TF-IDF</text>
 </g>
-<g transform="translate(925 151)">
-<rect width="277" height="164" rx="17" fill="#fff4e9" stroke="#c56828" stroke-width="1.6"/>
-<rect x="18" y="17" width="42" height="42" rx="11" fill="white"/>
-<g transform="translate(25 24)" fill="none" stroke="#8d4215" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="22" height="16" rx="2"/><path d="M3 9h22M14 20v5m-6 0h12"/></g>
-<text x="72" y="44" fill="#8d4215" font-size="21" font-weight="700">Tkinter desktop UI</text>
-<text x="22" y="82" fill="#243c4c" font-size="17" font-weight="650">Browse and filter articles</text>
-<text x="22" y="110" fill="#243c4c" font-size="17">Manage users and subjects</text>
-<text x="22" y="138" fill="#243c4c" font-size="17">Launch analysis and training</text>
+<g transform="translate(208 459)">
+<circle r="47" fill="#eaf3fc"/>
+<g transform="translate(-28 -28) scale(.875)" fill="none" stroke="#2a6bac" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M10 9v46h46M18 44l11-15 8 5 15-16"/><circle cx="52" cy="18" r="4"/></g>
+<circle cx="-44" cy="-35" r="17" fill="#2a6bac" stroke="white" stroke-width="2"/>
+<text x="-44" y="-29" font-weight="700" font-size="17" fill="white">4</text>
+<text y="83" fill="#17344d" font-size="24" font-weight="700">Review training results</text>
+<text y="112" fill="#405b70" font-size="17">Inspect metrics and ROC curves</text>
+<text y="136" fill="#405b70" font-size="17">Find saved models in the Models tab</text>
 </g>
-<g transform="translate(38 452)">
-<rect width="344" height="163" rx="17" fill="#fff4e9" stroke="#c56828" stroke-width="1.6"/>
-<rect x="18" y="17" width="42" height="42" rx="11" fill="white"/>
-<g transform="translate(25 24)" fill="none" stroke="#8d4215" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v21h21M9 20v-5m6 5V9m6 11V5"/></g>
-<text x="72" y="44" fill="#8d4215" font-size="21" font-weight="700">Classifier training</text>
-<text x="22" y="82" fill="#243c4c" font-size="17" font-weight="650">TF-IDF or Sentence-BERT</text>
-<text x="22" y="110" fill="#243c4c" font-size="17">Metrics and ROC curves</text>
-<text x="22" y="138" fill="#243c4c" font-size="17">Output: local model files</text>
+<g transform="translate(600 459)">
+<circle r="47" fill="#eaf6f1"/>
+<g transform="translate(-28 -28) scale(.875)" fill="none" stroke="#20806d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M7 35h11l8-18 10 29 8-16h13"/><rect x="3" y="8" width="58" height="48" rx="8"/></g>
+<circle cx="-44" cy="-35" r="17" fill="#20806d" stroke="white" stroke-width="2"/>
+<text x="-44" y="-29" font-weight="700" font-size="17" fill="white">5</text>
+<text y="83" fill="#17344d" font-size="24" font-weight="700">Run sentiment analysis</text>
+<text y="112" fill="#405b70" font-size="17">TextBlob and VADER score articles</text>
+<text y="136" fill="#405b70" font-size="17">View plots, table scores and CSV export</text>
 </g>
-<g transform="translate(448 452)">
-<rect width="344" height="163" rx="17" fill="#edf8f2" stroke="#3b8663" stroke-width="1.6"/>
-<rect x="18" y="17" width="42" height="42" rx="11" fill="white"/>
-<g transform="translate(25 24)" fill="none" stroke="#256347" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h5l4-8 5 16 4-8h4"/></g>
-<text x="72" y="44" fill="#256347" font-size="21" font-weight="700">Sentiment analysis</text>
-<text x="22" y="82" fill="#243c4c" font-size="17" font-weight="650">TextBlob and VADER</text>
-<text x="22" y="110" fill="#243c4c" font-size="17">Scores saved to MongoDB</text>
-<text x="22" y="138" fill="#243c4c" font-size="17">Output: plots and CSV export</text>
+<g transform="translate(992 459)">
+<circle r="47" fill="#f2edfa"/>
+<g transform="translate(-28 -28) scale(.875)" fill="none" stroke="#7555a8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M8 10h48v34H30L17 55V44H8zM19 25h26m-26 9h17"/></g>
+<circle cx="-44" cy="-35" r="17" fill="#7555a8" stroke="white" stroke-width="2"/>
+<text x="-44" y="-29" font-weight="700" font-size="17" fill="white">6</text>
+<text y="83" fill="#17344d" font-size="24" font-weight="700">Try a title prediction</text>
+<text y="112" fill="#405b70" font-size="17">Choose LLM Classify</text>
+<text y="136" fill="#405b70" font-size="17">Optional pretrained inference</text>
 </g>
-<g transform="translate(858 452)">
-<rect width="344" height="163" rx="17" fill="#f4effb" stroke="#805ab0" stroke-width="1.6"/>
-<rect x="18" y="17" width="42" height="42" rx="11" fill="white"/>
-<g transform="translate(25 24)" fill="none" stroke="#583783" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h18v14H12l-7 5zM9 12h10"/></g>
-<text x="72" y="44" fill="#583783" font-size="21" font-weight="700">Pretrained inference</text>
-<text x="22" y="82" fill="#243c4c" font-size="17" font-weight="650">BERT, BART, RoBERTa, FLAN-T5</text>
-<text x="22" y="110" fill="#243c4c" font-size="17">Single title or batch classification</text>
-<text x="22" y="138" fill="#243c4c" font-size="17">Output: predicted labels</text>
-</g>
-</g>
-</svg>
+</g></svg>

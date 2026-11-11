@@ -6,7 +6,7 @@ I developed this project for the Advanced Data Management course I had attended 
 
 The Tkinter app brings the workflow into one place. Import a labeled CSV into MongoDB, browse and filter articles, then train and compare classifiers with precision, recall, F1, and ROC curves. You can also run pretrained transformer predictions on a single article or a collection and inspect sentiment scores alongside article labels.
 
-![System architecture showing CSV ingestion into MongoDB, the Tkinter app, and data flows for training, sentiment analysis, and pretrained inference](docs/images/app-workflow.svg)
+![Six-step desktop walkthrough from launch and CSV import to training results, sentiment analysis, and optional title prediction](docs/images/app-workflow.svg)
 
 [Run the desktop demo](#run-the-desktop-demo) · [Run the full Kaggle workflow](#repeat-the-kaggle-experiment) · [Explore the app tabs](#app-tabs-and-controls)
 
