@@ -6,7 +6,7 @@ I developed this project for the Advanced Data Management course I had attended 
 
 The Tkinter app brings the workflow into one place. Import a labeled CSV into MongoDB, browse and filter articles, then train and compare classifiers with precision, recall, F1, and ROC curves. You can also run pretrained transformer predictions on a single article or a collection and inspect sentiment scores alongside article labels.
 
-[Run the desktop demo](#run-the-desktop-demo) · [Explore the app tabs](#app-tabs-and-controls) · [See the Kaggle training results](#example-tf-idf-training-results)
+[Run the desktop demo](#run-the-desktop-demo) · [Run the full Kaggle workflow](#repeat-the-kaggle-experiment) · [Explore the app tabs](#app-tabs-and-controls)
 
 ## What the project covers
 
@@ -38,6 +38,8 @@ Run `setupDB.py` once on a fresh demo database. If it reports that collections a
 
 On macOS or Linux with Python 3.11 and Tkinter, create the environment with `python3.11 -m venv .venv` and use `.venv/bin/python` in place of the Windows interpreter path above.
 
+### Quick test with the bundled CSV
+
 1. Sign in as `admin@example.test` with password `local-demo`.
 
    ![Realtime News Monitor login dialog with the demo email entered and the password masked](docs/images/demo-login.png)
@@ -46,11 +48,12 @@ On macOS or Linux with Python 3.11 and Tkinter, create the environment with `pyt
 
    ![Realtime News Monitor after importing the demo CSV, showing labeled articles in the Articles tab](docs/images/demo-articles.png)
 
-3. Use **Train Models from MongoDB Articles** and choose **TF-IDF**. Close the metrics and ROC plot windows to return to the app.
+3. Use **Train Models from MongoDB Articles** and choose **TF-IDF**. Review the precision, recall, F1, and ROC plots, then close each window until **Training Complete** appears. Open **Models** to see the saved model records.
 
    ![Model Training Options dialog with TF-IDF selected and SentenceTransformers embeddings available](docs/images/model-training-options.png)
 
-4. To try pretrained inference, select or enter an article title and click **LLM Classify**, choose a model, and click **Instant Classify Article**. The first use downloads the selected model. Sentence-BERT training also downloads a model on first use.
+4. In **Articles**, click **Run Sentiment Analysis**. Close each plot until the completion dialog appears, then click **Refresh Articles** to see the sentiment columns.
+5. For a one-title prediction, double-click an article to copy its title into the search box, click **LLM Classify**, choose a model, and click **Instant Classify Article**. The first use downloads the selected model.
 
 The example CSV contains invented English and Greek text, with ten rows per class. Its labels are for exercising ingestion and training. Any scores from this sample are smoke-test output. The **Reset & Load Kaggle Data** button clears the demo collections after confirmation.
 
@@ -78,6 +81,8 @@ The example CSV contains invented English and Greek text, with ten rows per clas
 
 ## Repeat the Kaggle experiment
 
+Complete the [desktop setup](#run-the-desktop-demo), then follow these steps to produce the training and sentiment results on the full dataset.
+
 1. Download `Fake.csv` and `True.csv` from the [Fake and Real News Dataset](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset) and put them in `fakenews_datasets/Kaggle/` inside the repository. Create those folders if needed.
 2. From the repository root, combine and shuffle the source CSVs with a fixed seed. This writes `AllNews_Kaggle.csv` with labels `0 = fake` and `1 = real`.
 
@@ -85,8 +90,13 @@ The example CSV contains invented English and Greek text, with ten rows per clas
    .venv\Scripts\python.exe -c "import pandas as pd; from pathlib import Path; p = Path('fakenews_datasets/Kaggle'); fake = pd.read_csv(p / 'Fake.csv').assign(label=0); real = pd.read_csv(p / 'True.csv').assign(label=1); pd.concat([fake, real], ignore_index=True).sample(frac=1, random_state=42).to_csv(p / 'AllNews_Kaggle.csv', index=False)"
    ```
 
-3. In the app, click **Reset & Load Kaggle Data** on a disposable demo database. The button clears the existing demo collections and loads up to 45,000 rows from the combined CSV. Sign in again if prompted.
-4. Set the search field to **source**, enter `Kaggle`, and click **Search**. Then choose **Train Models from MongoDB Articles → TF-IDF**. This limits the training selection to Kaggle rows. The terminal prints classification reports, holdout ROC AUC, and five-fold cross-validation F1. Close each plot to continue.
+3. **Load the dataset.** In **Articles**, click **Reset & Load Kaggle Data** on a disposable demo database. Confirm the reset to clear the demo collections and load up to 45,000 rows from the combined CSV. Sign in again if prompted. The Articles table should show the imported rows with `Kaggle` in the Source column.
+4. **Train and review the classifiers.** Set the search field to **source**, enter `Kaggle`, and click **Search**. The training button uses the rows matched by the current table view. Choose **Train Models from MongoDB Articles → TF-IDF → Train Models**. The terminal prints classification reports, holdout ROC AUC, and five-fold cross-validation F1. Close each plot window to reach **Training Complete**, then check **Models** for the three saved models.
+5. **Analyze article sentiment.** In **Articles**, click **Run Sentiment Analysis**. This scores the MongoDB article collection. Close each of the five plot windows in turn. When you see **Sentiment analysis completed and stored in MongoDB**, click **OK**, then **Refresh Articles**. Check **Polarity**, **Subjectivity**, **V_Compound**, and **Sentiment** in the table. The CSV export is saved to `fakenews_datasets/sentiment/articles_sentiments.csv`.
+
+   ![Completion dialog confirming that sentiment analysis results were stored in MongoDB](docs/images/kaggle-sentiment-complete.png)
+
+6. **Try a pretrained prediction (optional).** Double-click a row to copy its title, then choose **LLM Classify → Instant Classify Article** after selecting a model. Compare the title prediction with the row’s dataset label. This action uses the selected pretrained transformer. To compare TF-IDF with Sentence-BERT instead, keep the same training selection and repeat step 4 with **Embeddings (SentenceTransformers)**. The embeddings model downloads on first use.
 
 ![Articles tab after importing AllNews_Kaggle.csv through the generic CSV uploader](docs/images/kaggle-articles.png)
 
