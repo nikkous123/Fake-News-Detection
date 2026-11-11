@@ -52,7 +52,7 @@ The evaluation measures agreement with dataset labels on a random split. Publish
 ## Credits
 
 Nikolas Kousoulis. 
-This was a project I created while attending the course 'Advanced Data Management' of the Department of Electrical and Computer Engineering, University of Thessaly, 2024–25.
+This was a project I created while attending the course 'Advanced Data Management' of the Department of Electrical and Computer Engineering.
 
 ## License
 
