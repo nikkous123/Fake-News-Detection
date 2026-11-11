@@ -2,7 +2,7 @@
 
 **A Python desktop app and coursework project for training, comparing, and exploring fake-news classifiers.**
 
-We developed this project for the Advanced Data Management course at the University of Thessaly in 2024–25. We investigated how classical machine learning and pretrained transformers classify English-language news as **real** or **fake**. We compared TF-IDF with Sentence-BERT embeddings and explored whether sentiment offered a useful signal. On FakeNewsNet, TextBlob and VADER scores overlapped substantially across the two classes, especially around neutral sentiment.
+I developed this project for the Advanced Data Management course I had attended back in 2024-2025, at the University of Thessaly - Electrical & Computer Engineering. I investigated how classical machine learning and pretrained transformers classify English-language news as **real** or **fake**. I compared TF-IDF with Sentence-BERT embeddings and explored whether sentiment offered a useful signal. On FakeNewsNet, TextBlob and VADER scores overlapped substantially across the two classes, especially around neutral sentiment.
 
 The Tkinter app brings the workflow into one place. Import a labeled CSV into MongoDB, browse and filter articles, then train and compare classifiers with precision, recall, F1, and ROC curves. You can also run pretrained transformer predictions on a single article or a collection and inspect sentiment scores alongside article labels.
 
@@ -128,7 +128,7 @@ The evaluation measures agreement with dataset labels on a random split. Publish
 ## Credits
 
 Nikolas Kousoulis. 
-This was a project I created while attending the course 'Advanced Data Management' of the Department of Electrical and Computer Engineering.
+This was a project I created while attending the course 'Advanced Data Management' of the Department of Electrical & Computer Engineering of Thessaly.
 
 ## License
 
