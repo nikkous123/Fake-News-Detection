@@ -1,6 +1,12 @@
 # Fake News Detection
 
-I worked on this project for the Advanced Data Management course at the University of Thessaly in 2024–25. We explored how classical machine learning models and pretrained transformers classify English-language news articles as **real** or **fake**. I used TF-IDF and Sentence-BERT to represent the text and explored sentiment patterns with TextBlob and VADER. This GitHub version includes a Tkinter desktop app that uses MongoDB to store, browse, and filter labeled articles. From the app, users can train classifiers on selected articles and run predictions with pretrained transformers.
+**A Python desktop app and coursework project for training, comparing, and exploring fake-news classifiers.**
+
+We developed this project for the Advanced Data Management course at the University of Thessaly in 2024–25. We investigated how classical machine learning and pretrained transformers classify English-language news as **real** or **fake**. We compared TF-IDF with Sentence-BERT embeddings and explored whether sentiment offered a useful signal. On FakeNewsNet, TextBlob and VADER scores overlapped substantially across the two classes, especially around neutral sentiment.
+
+The Tkinter app brings the workflow into one place. Import a labeled CSV into MongoDB, browse and filter articles, then train and compare classifiers with precision, recall, F1, and ROC curves. You can also run pretrained transformer predictions on a single article or a collection and inspect sentiment scores alongside article labels.
+
+[Run the desktop demo](#run-the-desktop-demo) · [Explore the app tabs](#app-tabs-and-controls) · [See the Kaggle training results](#example-tf-idf-training-results)
 
 ## What the project covers
 
