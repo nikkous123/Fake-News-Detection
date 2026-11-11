@@ -37,6 +37,9 @@ On macOS or Linux with Python 3.11 and Tkinter, create the environment with `pyt
    ![Realtime News Monitor login dialog with the demo email entered and the password masked](docs/images/demo-login.png)
 
 2. Use **Upload Synthetic/other dataset** and select [examples/demo_articles.csv](examples/demo_articles.csv).
+
+   ![Realtime News Monitor after importing the demo CSV, showing labeled articles in the Articles tab](docs/images/demo-articles.png)
+
 3. Use **Train Models from MongoDB Articles** and choose **TF-IDF**. Close the metrics and ROC plot windows to return to the app.
 4. To try pretrained inference, select or enter an article title and click **LLM Classify**, choose a model, and click **Instant Classify Article**. The first use downloads the selected model. Sentence-BERT training also downloads a model on first use.
 
